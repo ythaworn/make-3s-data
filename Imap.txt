@@ -1,0 +1,14 @@
+HEL_DEMa  Dem
+HEL_DEMb  Dem
+HEL_ERAa  Era
+HEL_ERAb  Era
+HEL_HIMa  Him
+HEL_HIMb  Him
+HEL_MELa  Mel
+HEL_MELb  Mel
+HEL_SARa  Sar
+HEL_SARb  Sar
+HEL_SIAa  Sia
+HEL_SIAb  Sia
+HEL_TELa  Tel
+HEL_TELb  Tel

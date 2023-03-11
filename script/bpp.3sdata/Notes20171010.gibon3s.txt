@@ -1,0 +1,71 @@
+Notes by Ziheng
+10 October 2017
+
+I modified bpp (version 3) to sample 3 sequences at each locus, with half of the
+loci having the 123 configurations, a quarter with 113, and another
+quarter with 223.  The program takes a bpp control file and read the 
+bpp sequence data file.  It asks for input of three species indexes 
+(according to species&tree line in the control file) and then generates 
+a 3s input data file by sampling three sequences for each locus.
+
+This is for the Gibbon paper Shi & Yang (2018 MBE).  You can take a look at that paper.
+For example, for the gibbons data, we have the following in the bpp control file.
+
+  species&tree = 6  Hm  Hp  B  S  N  O
+                    2   2   4  4  4  1
+                   (O, ((N, (B, S)), (Hm, Hp)));       * tree1 15.4%
+
+Thus if you type 
+1 3 6
+at the screen prompt, you will be generating a file for the species triplet Hm-B-O.
+
+If you can't make it work, i will send you the gibbons data file.
+
+To compile, do something like the following:
+
+cl -Ox bpp.3sdata.c tools.c
+gcc -o bpp.3sdata.c -O3 bpp.3sdata.c tools.c
+
+
+To run
+bpp.3sdata
+./bpp.3sdata
+
+
+// end of file
+
+
+Notes for myself: Besides the changes to bpp.c (copied in bpp.3sdata.c), comment out the
+call to PatternWeight inside ReadSeq.
+
+
+1 3 6
+1 4 6
+1 5 6
+3 4 6
+3 5 6
+4 5 6
+1 2 6
+1 2 3
+
+  species&tree = 6  Hm  Hp  B  S  N  O
+                    2   2   4  4  4  1
+                   (O, ((N, (B, S)), (Hm, Hp)));       * tree1 15.4%
+
+HMO_Madena.A    Hm
+HMO_Madena.B    Hm
+HPL_Domino.A    Hp
+HPL_Domino.B	Hp
+SSY_Monty.A     S
+SSY_Monty.B     S
+SSY_Karenina.A  S
+SSY_Karenina.B  S
+HLE_Drew.A	B
+HLE_Drew.B	B
+HLE_Maung.A     B
+HLE_Maung.B     B
+NLE_Asteriks.A  N
+NLE_Asteriks.B  N
+NLE_Vok.B       N
+NLE_Vok.A       N
+hg19            O
