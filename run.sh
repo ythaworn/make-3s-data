@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# phase multilocus data and subsample to 3 sequences per locus for 3s analysis
+# phase multilocus data and sample 3 sequences per locus for 3s analysis
 #
 # Yuttapong Thawornwattana (2019)
 #
